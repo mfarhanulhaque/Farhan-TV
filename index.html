@@ -716,5 +716,69 @@ renderList();
 // Auto-play first channel
 playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
 </script>
+
+
+<script>
+/* ── Anti-Inspect Protection ── */
+(function(){
+
+  // 1. Disable right-click context menu
+  document.addEventListener("contextmenu", function(e){ e.preventDefault(); return false; });
+
+  // 2. Disable common keyboard shortcuts
+  document.addEventListener("keydown", function(e){
+    // F12
+    if(e.keyCode===123){ e.preventDefault(); return false; }
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C / Ctrl+U / Ctrl+S
+    if(e.ctrlKey && e.shiftKey && (e.keyCode===73||e.keyCode===74||e.keyCode===67)){
+      e.preventDefault(); return false;
+    }
+    if(e.ctrlKey && (e.keyCode===85||e.keyCode===83)){
+      e.preventDefault(); return false;
+    }
+    // Ctrl+A (select all)
+    if(e.ctrlKey && e.keyCode===65){ e.preventDefault(); return false; }
+    // Alt+F4 won't be blocked (system level) but block common alt combos
+  });
+
+  // 3. Disable text selection via CSS (scoped to page)
+  var nosel = document.createElement("style");
+  nosel.textContent =
+    "body{-webkit-user-select:none!important;-moz-user-select:none!important;" +
+    "-ms-user-select:none!important;user-select:none!important;}";
+  document.head.appendChild(nosel);
+
+  // 4. Disable drag (prevents dragging source links/images)
+  document.addEventListener("dragstart", function(e){ e.preventDefault(); return false; });
+
+  // 5. DevTools detection via window size difference
+  var devDetect = function(){
+    var threshold = 160;
+    if(
+      (window.outerWidth - window.innerWidth) > threshold ||
+      (window.outerHeight - window.innerHeight) > threshold
+    ){
+      document.body.innerHTML =
+        "<div style='display:flex;align-items:center;justify-content:center;" +
+        "height:100vh;background:#09090f;color:#e63946;font-family:Rajdhani,sans-serif;" +
+        "font-size:1.5rem;letter-spacing:3px;text-align:center;flex-direction:column;gap:16px'>" +
+        "<div style='font-size:3rem'>🚫</div>" +
+        "<div>DEVELOPER TOOLS DETECTED</div>" +
+        "<div style='font-size:0.85rem;color:#6b6b80;letter-spacing:1px'>Please close DevTools to continue watching.</div>" +
+        "</div>";
+    }
+  };
+  setInterval(devDetect, 1000);
+  window.addEventListener("resize", devDetect);
+
+  // 6. Console warning trap (slows down console usage)
+  var _c = 0;
+  Object.defineProperty(console, "_trap", {
+    get: function(){ _c++; if(_c>2) devDetect(); }
+  });
+
+})();
+</script>
+  
 </body>
 </html>
