@@ -204,7 +204,7 @@
     display: flex; align-items: center; justify-content: center;
     background: #000;
   }
-  video { width: 99%; height: 99%; object-fit: contain; }
+  video { width: 95%; height: 95%; object-fit: contain; }
   .overlay {
     position: absolute; inset: 0;
     display: flex; flex-direction: column;
@@ -327,7 +327,7 @@
       <button class="tab" data-cat="news">News</button>
       <button class="tab" data-cat="kids">Kids</button>
       <button class="tab" data-cat="movies">Movies</button>
-      <button class="tab" data-cat="hindi">Hindi/Eng</button>
+      <button class="tab" data-cat="others">Others</button>
       <button class="tab" data-cat="explore">Explore/Inovation</button>
       <button class="tab" data-cat="religion">Religion</button>
     </div>
@@ -495,7 +495,11 @@ const channels = [
   { name:"Jungle Book", cat:"kids", logo:"https://i.imgur.com/ubZMeQv.jpg", url:"https://cc-4bhi5osabejc9.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/junglebook.m3u8" },
   { name:"Rongeen TV", cat:"kids", logo:"https://i.postimg.cc/zBCLNtGZ/Duranto.jpg", url:"https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8" },
   // Movies
+  { name:"COMEDY CENTRAL", cat:"movies", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
+  { name:"HBO", cat:"movies", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"https://tvsen5.aynaott.com/hbo/index.m3u8" },
+  { name:"HBO 2", cat:"movies", logo:"https://s3.aynaott.com/storage/b64c028d8c0895ed81f3201d5979f7ba", url:"https://tvsen7.aynaott.com/hbo2/index.m3u8" },
   { name:"MOVIE BANGLA", cat:"movies", logo:"https://tvassets.roarzone.net/images/86.png", url:"" },
+  { name:"Goldmines", cat:"movies", logo:"https://s3.aynaott.com/storage/e92e9e2fb70909f3dd30a8d89e644119", url:"" },
   { name:"AMC TV", cat:"movies", logo:"https://s3.aynaott.com/storage/5522b7ef736d7f4e7f80ac6325dce821", url:"" },
   { name:"TBS", cat:"movies", logo:"https://s3.aynaott.com/storage/45a768728c7514ba59d1a0ccf806e222", url:"" },
   { name:"MovieSphere", cat:"movies", logo:"https://s3.aynaott.com/storage/4d343b446b1e7164bb7239bbe822a570", url:"" },
@@ -508,20 +512,17 @@ const channels = [
   { name:"AXS", cat:"movies", logo:"https://s3.aynaott.com/storage/56d2c21362152b678998094f1c670dd5", url:"" },
   { name:"pix 11", cat:"movies", logo:"https://s3.aynaott.com/storage/294b72dc2ca7b74ab3312059728cab22", url:"" },
   { name:"SRK TV", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/IMG_20260528_193117_215.jpg", url:"" },
-  { name:"G Series Drama", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(7).jpeg", url:"" },
-  // Hindi/Eng
+  { name:"G Series Drama", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(7).jpeg", url:"https://vods2.aynaott.com/gseriesDrama/tracks-v1a1/mono.ts.m3u8" },
+  // others
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
-  { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
-  { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
-  { name:"HBO 2", cat:"hindi", logo:"https://s3.aynaott.com/storage/b64c028d8c0895ed81f3201d5979f7ba", url:"" },
+  { name:"Star Movies", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"Fox business", cat:"hindi", logo:"https://s3.aynaott.com/storage/20e4602dd584784607e5eff3963cdde6", url:"" },
   { name:"Fox 5", cat:"hindi", logo:"https://s3.aynaott.com/storage/4f6486854be670f7458ab60d0402ee42", url:"" },
   { name:"BRAVO", cat:"hindi", logo:"https://s3.aynaott.com/storage/7604a2c87620363fce86b73731b8035d", url:"" },
-  { name:"COMEDY CENTRAL", cat:"hindi", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
   { name:"COOKING TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/bf9792dc04cace6a25407b6304a35046", url:"" },
   { name:"EPIX TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/c0b0c986890a8c88c3566d93e18cada6", url:"" },
   { name:"FX TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/f403cc315ca6269c5fcbf1875c95d329", url:"" },
@@ -532,7 +533,6 @@ const channels = [
   { name:"9x Jalwa", cat:"hindi", logo:"https://s3.aynaott.com/storage/d2d8f00a60dc64dad6c0181cd86f7869", url:"" },
   { name:"9X Tashan", cat:"hindi", logo:"https://s3.aynaott.com/storage/5d052254516639955d06182690d3fda2", url:"" },
   { name:"Dhinchaak", cat:"hindi", logo:"https://s3.aynaott.com/storage/f4edcca7247bbb4a263a51d7ebb82282", url:"" },
-  { name:"Goldmines", cat:"hindi", logo:"https://s3.aynaott.com/storage/e92e9e2fb70909f3dd30a8d89e644119", url:"" },
   { name:"Manoranjan TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/1a62a70103bac9999411a72b8a8b7ccc", url:"" },
   { name:"Republic Bharat", cat:"hindi", logo:"https://s3.aynaott.com/storage/947715e0a22f16ac21805073ce6eb0b6", url:"" },
   { name:"CBS TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/41536a676b99c1996efbccd8f65df42b", url:"" },
@@ -567,23 +567,20 @@ const channels = [
   { name:"Travel XP", cat:"explore", logo:"https://s3.aynaott.com/storage/a676d2f5ddf6e5f978b3d51876dceecf", url:"https://27c980761ff9437d929e64647afe183a.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-eu_TravelXP/playlist.m3u8" },
   { name:"TLC HD", cat:"explore", logo:"https://s3.aynaott.com/storage/ba3c9fa1144bc65322f8ae3a1bb69cc9", url:"https://tvsen6.aynaott.com/tlc_hd/index.m3u8" },
   { name:"Food Network", cat:"explore", logo:"https://s3.aynaott.com/storage/582675c375dfa47c2d66e6639fcd2eac", url:"https://tvsen6.aynaott.com/foodnetwork/index.m3u8" },
+  { name:"WEATHER CH.", cat:"explore", logo:"https://s3.aynaott.com/storage/67e08c23033802b4443baf81d1b048bf", url:"https://tvsen6.aynaott.com/TheWeatherChannel/index.m3u8" },
+  { name:"AccuWeather", cat:"explore", logo:"https://s3.aynaott.com/storage/21992f5e8529a9d2a94b6edf917dbd8f", url:"https://amg00684-accuweather-accuweather-plex-jbd2s.amagi.tv/playlist/amg00684-accuweather-accuweather-plex/playlist.m3u8" },
+  { name:"Fox Weather", cat:"explore", logo:"https://s3.aynaott.com/storage/6dd20ecde19ea3f6b6cf6c040701973e", url:"https://247wlive.foxweather.com/stream/index.m3u8" },
   // Religion
-  { name:"Islamic TV", cat:"religion", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(8).jpeg", url:"" },
+  { name:"Makka TV", cat:"religion", logo:"", url:"https://media2.streambrothers.com:1936/8122/8122/chunklist_w1247854077.m3u8" },
   { name:"Peace TV Bangla", cat:"religion", logo:"https://i.ibb.co/Gfw89mC/20240804-033102.png", url:"" },
+  { name:"Peace TV Bangla", cat:"religion", logo:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZHm8MZpsQ_tONDYCnpR2r4jDctpjhfMAAAdZ4_X661ljgo9t7zzE4oZrup_hN2WnN-clZqQPy7bFK0Rh3yHT376J1ZDn7l3jLw65nJ8wo7dr4mjH9Povbddl5Lyuea_yvy89waVOVuRvbc0K3JnRpqC7JJ4j9D3MUfJJZWvBdKz2VSlO9-Qiyt0IN/s600/Nur_20251026_225144_0000.png", url:"https://dzkyvlfyge.erbvr.com/PeaceTvEnglish/tracks-v4a1/mono.m3u8" },
   { name:"RTV Islam", cat:"religion", logo:"https://s3.aynaott.com/storage/f00eda9194eb13e8ef1d1387889173bf", url:"" },
   { name:"Channel Win", cat:"religion", logo:"https://s3.aynaott.com/storage/3458d0d9097a8283a94a13374bcbf5c7", url:"" },
-  { name:"Deen TV", cat:"religion", logo:"https://s3.aynaott.com/storage/66ac3ae1e56001353b69bb5f63ebcc6e", url:"" },
-  { name:"Eman Channel", cat:"religion", logo:"https://s3.aynaott.com/storage/09d759c7bb93fa3fb76014c8936201ce", url:"" },
-  { name:"MADANI TV", cat:"religion", logo:"https://s3.aynaott.com/storage/813fca9bc7df9a4810efe2eb87c57039", url:"" },
-  { name:"WEATHER CH.", cat:"religion", logo:"https://s3.aynaott.com/storage/67e08c23033802b4443baf81d1b048bf", url:"" },
-  { name:"AccuWeather", cat:"religion", logo:"https://s3.aynaott.com/storage/21992f5e8529a9d2a94b6edf917dbd8f", url:"" },
-  { name:"Fox Weather", cat:"religion", logo:"https://s3.aynaott.com/storage/6dd20ecde19ea3f6b6cf6c040701973e", url:"" },
-  { name:"Sky Weather", cat:"religion", logo:"https://s3.aynaott.com/storage/78b7ab973209ec06346cf8acfd8544cd", url:"" },
-  { name:"Saudia Radio", cat:"religion", logo:"https://s3.aynaott.com/storage/76d7d7446ee57ec14ff67c1678725d19", url:"" },
-  { name:"ABN", cat:"religion", logo:"https://s3.aynaott.com/storage/9882913a8d68aa99c0501b64749d6320", url:"" },
-  { name:"CMAC TV", cat:"religion", logo:"https://s3.aynaott.com/storage/14a329b450239b9a4beaa4953c33367b", url:"" },
-  { name:"R Plus", cat:"religion", logo:"https://s3.aynaott.com/storage/9531f970bb7abf30ac2a48f40838c3a1", url:"" },
-];
+  { name:"Deen TV", cat:"religion", logo:"https://s3.aynaott.com/storage/66ac3ae1e56001353b69bb5f63ebcc6e", url:"https://tvsen7.aynaott.com/deen/index.m3u8" },
+  { name:"Eman Channel", cat:"religion", logo:"https://s3.aynaott.com/storage/09d759c7bb93fa3fb76014c8936201ce", url:"https://tvsen6.aynaott.com/eman/index.m3u8" },
+  { name:"MADANI TV", cat:"religion", logo:"https://s3.aynaott.com/storage/813fca9bc7df9a4810efe2eb87c57039", url:"https://tvsen7.aynaott.com/MadaniTV/index.m3u8" },
+  { name:"Al Quran", cat:"religion", logo:"", url:"https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8" },
+  { name:"Saudia Quran", cat:"religion", logo:"", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
 
 const catLabels = {
   bangla:"🍿 Bangla Entertainment", sports:"🏆 Sports Channels",
