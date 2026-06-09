@@ -204,7 +204,7 @@
     display: flex; align-items: center; justify-content: center;
     background: #000;
   }
-  video { width: 100%; height: 100%; object-fit: contain; }
+  video { width: 95%; height: 95%; object-fit: contain; }
   .overlay {
     position: absolute; inset: 0;
     display: flex; flex-direction: column;
@@ -327,7 +327,7 @@
       <button class="tab" data-cat="news">News</button>
       <button class="tab" data-cat="kids">Kids</button>
       <button class="tab" data-cat="movies">Movies</button>
-      <button class="tab" data-cat="hindi">Hindi/Eng</button>
+      <button class="tab" data-cat="others">Others</button>
       <button class="tab" data-cat="explore">Explore/Inovation</button>
       <button class="tab" data-cat="religion">Religion</button>
     </div>
@@ -591,7 +591,6 @@ const channels = [
   { name:"Al Quran", cat:"religion", logo:"", url:"https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8" },
   { name:"Saudia Quran", cat:"religion", logo:"", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
 ];
-
 const catLabels = {
   bangla:"🍿 Bangla Entertainment", sports:"🏆 Sports Channels",
   news:"📰 Live News & Info", kids:"🧸 Kids Channels",
@@ -754,8 +753,10 @@ document.getElementById("pipBtn").addEventListener("click",()=>{
 renderList();
 // Auto-play first channel
 playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
+</script>
 
-// ── ANTI-INSPECT PROTECTION ──
+<script>
+/* ── Anti-Inspect Protection ── */
 (function(){
 
   // 1. Disable right-click context menu
@@ -766,17 +767,32 @@ playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
 
   // 2. Disable common keyboard shortcuts
   document.addEventListener("keydown", function(e){
-    if(e.keyCode === 123){ e.preventDefault(); return false; } // F12
+
+    // F12
+    if(e.keyCode === 123){
+      e.preventDefault();
+      return false;
+    }
+
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
     if(e.ctrlKey && e.shiftKey &&
       (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)){
-      e.preventDefault(); return false; // Ctrl+Shift+I/J/C
+      e.preventDefault();
+      return false;
     }
+
+    // Ctrl+U / Ctrl+S
     if(e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83)){
-      e.preventDefault(); return false; // Ctrl+U / Ctrl+S
+      e.preventDefault();
+      return false;
     }
+
+    // Ctrl+A
     if(e.ctrlKey && e.keyCode === 65){
-      e.preventDefault(); return false; // Ctrl+A
+      e.preventDefault();
+      return false;
     }
+
   });
 
   // 3. Disable text selection
@@ -794,7 +810,7 @@ playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
     return false;
   });
 
-  // 5. DevTools detection (with zoom fix)
+// 5. DevTools detection (with zoom fix)
   var devtoolsOpen = false;
   var baseRatio    = window.devicePixelRatio;
 
@@ -894,7 +910,7 @@ playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
   });
 
 })();
-
 </script>
+
 </body>
 </html>
