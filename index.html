@@ -204,7 +204,7 @@
     display: flex; align-items: center; justify-content: center;
     background: #000;
   }
-  video { width: 95%; height: 95%; object-fit: contain; }
+  video { width: 100%; height: 100%; object-fit: contain; }
   .overlay {
     position: absolute; inset: 0;
     display: flex; flex-direction: column;
@@ -327,7 +327,7 @@
       <button class="tab" data-cat="news">News</button>
       <button class="tab" data-cat="kids">Kids</button>
       <button class="tab" data-cat="movies">Movies</button>
-      <button class="tab" data-cat="others">Others</button>
+      <button class="tab" data-cat="hindi">Hindi/Eng</button>
       <button class="tab" data-cat="explore">Explore/Inovation</button>
       <button class="tab" data-cat="religion">Religion</button>
     </div>
@@ -362,44 +362,23 @@
 <script>
 const channels = [
   // Sports
-  { name:"FIFA | Fifa+", cat:"sports", logo:"https://i.postimg.cc/vZQDRVYY/image-(1).png", url:"https://d2w9q46ikgrcwx.cloudfront.net/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" },
-  { name:"FIFA | FS1", cat:"sports", logo:"https://i.postimg.cc/rwQsqwm7/image-(2).png", url:"https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports.m3u8" },
-  { name:"FIFA | FS2", cat:"sports", logo:"https://i.postimg.cc/BnMbJn6r/image.png", url:"https://tvsen7.aynaott.com/foxsports2/index.m3u8" },
-  { name:"FIFA | United Sports 2", cat:"sports", logo:"https://i.postimg.cc/nhHM8DFp/1000284105.png", url:"" },
-  { name:"FIFA | United Sports 1", cat:"sports", logo:"https://i.postimg.cc/P52Jd5Jk/1000284104.png", url:"" },
-  { name:"FIFA | CazéTV", cat:"sports", logo:"https://i.postimg.cc/Dw2mVX25/1000284076.png", url:"https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
-  { name:"FIFA | PTV", cat:"sports", logo:"https://i.postimg.cc/Gmc90ycZ/1000284021.png", url:"http://103.204.43.87:8080/live/1/1/313.m3u8" },
-  { name:"FIFA | T Sports", cat:"sports", logo:"https://i.postimg.cc/rw8z6r8Y/1000283988.png", url:"https://tvsen7.aynaott.com/tsports-hd/tracks-v1a1/mono.ts.m3u8" },
-  { name:"FIFA | ShomoyTV", cat:"sports", logo:"https://i.postimg.cc/dVqDMysF/1000283986.png", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8" },
-  { name:"FIFA | BTV", cat:"sports", logo:"https://i.postimg.cc/dVqDMysF/1000283986.png", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709-audio_113392_eng=113200-video=2202800.m3u8" },
-  { name:"FIFA | Star News", cat:"sports", logo:"https://i.postimg.cc/Dw2mVX2H/1000283982.png", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/1710-audio_113402_eng=113200-video=3224800.m3u8" },
+  { name:"FIFA+ 1", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" },
+  { name:"FIFA+ 2", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8" },
+  { name:"FIFA+ 3", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/6f5437c5-e015-4754-8476-c8c6d27d3a55/1.m3u8" },
   { name:"FIFA WORLD CUP 2026", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://cdn-useast1.kapwing.com/FIFA_World_Cup_2026_TV_Opening_Intro-lVFg1O17Vwk3S-.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1780874658&Signature=WghaM%2BbCCZ7KuDwD9JIpqdh%2BaNuPKoF8Aty0p7O1zYfI7yA%2B%2B7O44uuHZiRsEc7vtZ8mwKnztKyZ1X2YItXwBNR9XrpqpimWx%2BGsJxx0yCrn1jzzBn%2BUpLziBtpqJM5y1PzMYteVE0UoduLTsWmX%2BklDlrvq3V0YhwGVNCHzccM%2FNwgYtwIWoZmjKtuQCRS0YYS5R4Vw4U%2BS8u2vJCT7IG0o9d9PN93%2BfKV21V47L%2FaDANB%2FPPtmZ32NhZm6KLXHeCF7txI3ilj7FwuS0h65cS20wVtmS3CtOctS%2BirsS%2Fsf4uSmtL0bk%2FreeUC0eXNQyq5OLkJZI%2FET0HcsCvcOMQ%3D%3D" },
   { name:"FIFA WORLD CUP 2026", cat:"sports", logo:"https://i.postimg.cc/1z62rQJ1/image.png", url:"https://cdn-useast1.kapwing.com/Vinheta_da_Copa_do_Mundo_FIFA_2026_World_Cup_2026_Official_Intro_1080p60-2tr4xeoYIiwHCs.mp4?GoogleAccessId=prod-sa-videoprocessing%40kapwing-prod.iam.gserviceaccount.com&Expires=1780875584&Signature=XImixAQB4mvX7HYq22Kk1lmY7Im5j3df2RV8%2FzgG87KH7PcN7ARH2lLX9pGbk1lq1wgsw0JVKS0ZuWjHNPQQu%2Fphzn5zXFctVYhpZTNcCwZpMLT4ZSYU9luCcbTNfSt6dR%2F4M0mNI4IzFRk2%2F4ejp46DhttcD42SrQHpjX4%2B4VzQTwJVsAuKicXh0P71LUPHrFO0iLRolg4%2BS7whMuYRijtb3ftfwtKhHOnlsyR3DXcMegFAOEfVlp5gjCAz0EcaPqU9LoDi0j55mJxIQ8Yxta9r1FpeazOwpo8RHyt1Q3X7e%2FLckpNa1Z%2BH8ldXHJbXcCcpzBvOAYf5XJC88OOrTw%3D%3D" },
-  { name:"FIFA+ English", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" },
-  { name:"FIFA+ English", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8" },
-  { name:"FIFA+ French", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/6f5437c5-e015-4754-8476-c8c6d27d3a55/1.m3u8" },
-  { name:"FIFA+ German", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://4397879b.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWRlX0ZJRkFQbHVzR2VybWFuX0hMUw/playlist.m3u8" },
-  { name:"FIFA+ Hispanic America", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://6c849fb3.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctbXhfRklGQVBsdXNTcGFuaXNoLTFfSExT/playlist.m3u8" },
-  { name:"FIFA+ Italy", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://5d95f7d7.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWl0X0ZJRkFQbHVzSXRhbGlhbl9ITFM/playlist.m3u8" },
-  { name:"FIFA+ Portuguese", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://e3be9ac5.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfRklGQVBsdXNQb3J0dWd1ZXNlX0hMUw/playlist.m3u8" },
-  { name:"FIFA+ Spain", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/6f5437c5-e015-4754-8476-c8c6d27d3a55/1.m3u8" },
   { name:"T Sports HD 1", cat:"sports", logo:"https://s3.aynaott.com/storage/dbc585f70a60b9855b6e13a8ce4cb6f4", url:"https://cdn.jsdelivr.net/gh/nurmd2006/empty@main/stream/by/your-abbu/nurmd2006/offline-channels/tsports.m3u8" },
   { name:"T Sports HD 2", cat:"sports", logo:"https://s3.aynaott.com/storage/dbc585f70a60b9855b6e13a8ce4cb6f4", url:"https://tvsen7.aynaott.com/tsports-hd/index.m3u8" },
   { name:"T Sports HD 3", cat:"sports", logo:"https://s3.aynaott.com/storage/dbc585f70a60b9855b6e13a8ce4cb6f4", url:"https://tvsen7.aynaott.com/tsports-hd/tracks-v1a1/mono.ts.m3u8" },
   { name:"ESPN", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://tvsen5.aynaott.com/espn/index.m3u8" },
-  { name:"La Liga", cat:"sports", logo:"https://i.postimg.cc/L5Y7T1HK/image.png", url:"https://d3bb58xoj568xi.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-don7i7nmbho0q/index.m3u8" },
-  { name:"FC Barsalona", cat:"sports", logo:"https://i.postimg.cc/bNBxbkj2/image.png", url:"https://amg17560-fcb-amg17560c1-rakuten-uk-4891.playouts.now.amagi.tv/playlist/amg17560-fcbarcelona-topbarcaenglish-rakutenuk/playlist.m3u8" },
-  { name:"Top Barsa", cat:"sports", logo:"https://i.postimg.cc/bNBxbkj2/image.png", url:"https://amg17560-fcb-amg17560c2-rakuten-es-4889.playouts.now.amagi.tv/playlist.m3u8" },
-  { name:"Real Madrid", cat:"sports", logo:"https://i.postimg.cc/ydYCFxgn/image.png", url:"https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_3.m3u8" },
+  { name:"La Liga", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://d3bb58xoj568xi.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-don7i7nmbho0q/index.m3u8" },
+  { name:"Real Madrid", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_3.m3u8" },
   { name:"Fox Sports 2", cat:"sports", logo:"https://s3.aynaott.com/storage/da4282cd107cc3d40efadae488b187e5", url:"https://tvsen7.aynaott.com/foxsports2/index.m3u8" },
-  { name:"Sony Sports 1", cat:"sports", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://tvsen5.aynaott.com/espn/index.m3u8" },
-  { name:"Sony Sports 2", cat:"sports", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://stream.ottplus.bd/live/ten_2_hd_abr/index.m3u8" }, 
-  { name:"Sony Sports 5", cat:"sports", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_5_hd&e=.m3u8" }, 
-  { name:"Ten Cricket", cat:"sports", logo:"https://i.postimg.cc/W4zQ3KQD/image.png", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=ten_cricket&e=.m3u8" },
+  { name:"Sony Sports 1", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://tvsen5.aynaott.com/espn/index.m3u8" },
+  { name:"Sony Sports 2", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://stream.ottplus.bd/live/ten_2_hd_abr/index.m3u8" }, 
+  { name:"Sony Sports 5", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=sony_sports_5_hd&e=.m3u8" }, 
+  { name:"Ten Cricket", cat:"sports", logo:"https://s3.aynaott.com/storage/dbc585f70a60b9855b6e13a8ce4cb6f4", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=ten_cricket&e=.m3u8" },
   { name:"Star Sports 1 HD", cat:"sports", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png", url:"https://tvsen7.aynaott.com/sspts1/index.m3u8" },
-  { name:"Star Sports 2 HD", cat:"sports", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png", url:"https://tvsen7.aynaott.com/ssport2hd/index.m3u8" },
-  { name:"Star Sports Select 1 HD", cat:"sports", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png", url:"http://198.195.239.50:8095/StarSportsSelect1/index.m3u8" },
-  { name:"Star Sports Select 2 HD", cat:"sports", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png", url:"http://198.195.239.50:8095/StarSportsSelect2/index.m3u8" },
   { name:"Willow HD TV", cat:"sports", logo:"https://s3.aynaott.com/storage/94a778ec3219f7eb54bdf1ee07a95788", url:"https://tvsen5.aynaott.com/willowhd/index.m3u8" },
   { name:"PTV Sports", cat:"sports", logo:"https://s3.aynaott.com/storage/9d9d7cbfba5a8ceea648bbd963ad1014", url:"https://tvsen5.aynaott.com/PtvSports/index.m3u8" },
   { name:"A sports", cat:"sports", logo:"https://s3.aynaott.com/storage/64de30d2df9b2a888cb73f17614a9a8b", url:"https://tvsen6.aynaott.com/asports/index.m3u8" },
@@ -414,12 +393,6 @@ const channels = [
   { name:"SPORTS FIRST", cat:"sports", logo:"https://s3.aynaott.com/storage/748d28752dcf95740561f1ac39e15fc3", url:"https://d4ddgdmj1cvnm.cloudfront.net/scheduler/scheduleMaster/409.m3u8" },
   { name:"Marquee Sports", cat:"sports", logo:"https://s3.aynaott.com/storage/66bdaa21aba96de6d32a3515715f7502", url:"https://tvsen6.aynaott.com/MarqueeSportsNetwork/index.m3u8" },
   { name:"Sports Grid", cat:"sports", logo:"https://s3.aynaott.com/storage/1aa37e387ed56a1260b285558eec7c46", url:"https://tvsen6.aynaott.com/SportsGrid/index.m3u8" },
-  { name:"Redbull TV 1", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://0b73ace69ebb45eaa249bb87837cb958.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-644-WORBUSENFAST-LG_US/644/lgtv/hls/master/playlist.m3u8" },
-  { name:"Redbull TV 2", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8" },
-  { name:"Redbull TV 3", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://886bd3fbc782459f8de7555d32d7e9ce.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-957-WORBLATAMESFAST-WHALETVPLUS/957/whaletvplus/hls/master/playlist.m3u8" },
-  { name:"Redbull TV 4", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://769a97d9.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X1JlZEJ1bGxUVl9ITFM/playlist.m3u8" },
-  { name:"Redbull TV 5", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://3ea22335.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWdiX1JlZEJ1bGxUVl9ITFM/playlist.m3u8" },
-  { name:"Redbull TV 6", cat:"sports", logo:"https://i.postimg.cc/nrz1NpPV/Red-Bull-TV.jpg", url:"https://d1hlbgn3fph0cz.cloudfront.net/playlist.m3u8" },
   { name:"Xtream Sports", cat:"sports", logo:"https://s3.aynaott.com/storage/e1749cf3040f11c63e722c941f213927", url:"https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e0b81a5c-6ab5-48cd-aaa9-f82de4ab5bf9/manifest.m3u8" },
   // Bangla Entertainment
   { name:"BTV CTG", cat:"bangla", logo:"https://s3.aynaott.com/storage/00da8a07fb26b2fb79359ee535e4c7bc", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/index.m3u8" },
@@ -484,7 +457,6 @@ const channels = [
   { name:"Cartoon Network 3", cat:"kids", logo:"https://s3.aynaott.com/storage/a89142109d049ae325fd1681b50bfffb", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=cartoon_network_sd&e=.m3u8" },
   { name:"Cartoon Network 4", cat:"kids", logo:"https://s3.aynaott.com/storage/a89142109d049ae325fd1681b50bfffb", url:"https://s3.ideationtec.live/Cartoon_Network/Cartoon_Network.m3u8" },
   { name:"Cartoon Network 5", cat:"kids", logo:"https://s3.aynaott.com/storage/a89142109d049ae325fd1681b50bfffb", url:"https://cdn4.skygo.mn/live/disk1/Cartoon_Network/HLSv3-FTA/Cartoon_Network.m3u8" },
-  { name:"Cartoon Network 6", cat:"kids", logo:"https://s3.aynaott.com/storage/a89142109d049ae325fd1681b50bfffb", url:"http://198.195.239.50:8095/CartoonNetwork/index.m3u8" },
   { name:"Duronto TV 1", cat:"kids", logo:"https://s3.aynaott.com/storage/51f1530c076c027e431bf18a49613f0b", url:"https://tvsen6.aynaott.com/durontotv-live/index.m3u8" },
   { name:"Duronto TV 2", cat:"kids", logo:"https://s3.aynaott.com/storage/51f1530c076c027e431bf18a49613f0b", url:"https://tvsen5.aynaott.com/durontotv/index.m3u8" },
   { name:"Duronto TV 3", cat:"kids", logo:"https://s3.aynaott.com/storage/51f1530c076c027e431bf18a49613f0b", url:"https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/duronto.stream/playlist.m3u8" },
@@ -500,14 +472,7 @@ const channels = [
   { name:"Jungle Book", cat:"kids", logo:"https://i.imgur.com/ubZMeQv.jpg", url:"https://cc-4bhi5osabejc9.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-4bhi5osabejc9/junglebook.m3u8" },
   { name:"Rongeen TV", cat:"kids", logo:"https://i.postimg.cc/zBCLNtGZ/Duranto.jpg", url:"https://server.thelegitpro.in/rongeentv/rongeentv/index.m3u8" },
   // Movies
-  { name:"Star Movies", cat:"movies", logo:"https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Star%20Movies.png", url:"http://198.195.239.50:8095/StarMovies/tracks-v1a1/mono.m3u8" },
-  { name:"COMEDY CENTRAL", cat:"movies", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
-  { name:"COMEDY CENTRAL", cat:"movies", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
-  { name:"COMEDY CENTRAL", cat:"movies", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
-  { name:"HBO", cat:"movies", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"https://tvsen5.aynaott.com/hbo/index.m3u8" },
-  { name:"HBO 2", cat:"movies", logo:"https://s3.aynaott.com/storage/b64c028d8c0895ed81f3201d5979f7ba", url:"https://tvsen7.aynaott.com/hbo2/index.m3u8" },
   { name:"MOVIE BANGLA", cat:"movies", logo:"https://tvassets.roarzone.net/images/86.png", url:"" },
-  { name:"Goldmines", cat:"movies", logo:"https://s3.aynaott.com/storage/e92e9e2fb70909f3dd30a8d89e644119", url:"" },
   { name:"AMC TV", cat:"movies", logo:"https://s3.aynaott.com/storage/5522b7ef736d7f4e7f80ac6325dce821", url:"" },
   { name:"TBS", cat:"movies", logo:"https://s3.aynaott.com/storage/45a768728c7514ba59d1a0ccf806e222", url:"" },
   { name:"MovieSphere", cat:"movies", logo:"https://s3.aynaott.com/storage/4d343b446b1e7164bb7239bbe822a570", url:"" },
@@ -516,21 +481,26 @@ const channels = [
   { name:"Cowboy Movie", cat:"movies", logo:"https://s3.aynaott.com/storage/cb1ab052f5b733bbf600a7a8e3a1164b", url:"" },
   { name:"Sangeet Bangla", cat:"movies", logo:"https://s3.aynaott.com/storage/80424ce0682e14e7d51e28de33d5f380", url:"" },
   { name:"B4U MUSIC", cat:"movies", logo:"https://tvassets.roarzone.net/images/b4umusic.png", url:"" },
+  { name:"Discovery BD", cat:"movies", logo:"https://raw.githubusercontent.com/subirkumarpaul/Logo/main/Discovery%20.png", url:"" },
+  { name:"Animal Planet", cat:"movies", logo:"https://s3.aynaott.com/storage/18d95033c5d53fc3b159141a842fdeac", url:"" },
   { name:"Power Turk", cat:"movies", logo:"https://s3.aynaott.com/storage/c4f27e64c99b50629e7021b99ac9387a", url:"" },
   { name:"AXS", cat:"movies", logo:"https://s3.aynaott.com/storage/56d2c21362152b678998094f1c670dd5", url:"" },
   { name:"pix 11", cat:"movies", logo:"https://s3.aynaott.com/storage/294b72dc2ca7b74ab3312059728cab22", url:"" },
   { name:"SRK TV", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/IMG_20260528_193117_215.jpg", url:"" },
-  { name:"G Series Drama", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(7).jpeg", url:"https://vods2.aynaott.com/gseriesDrama/tracks-v1a1/mono.ts.m3u8" },
-  // others
+  { name:"G Series Drama", cat:"movies", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(7).jpeg", url:"" },
+  // Hindi/Eng
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
   { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
-  { name:"Star Movies", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
+  { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
+  { name:"HBO", cat:"hindi", logo:"https://s3.aynaott.com/storage/4a1291716680b5c095d33e106337bb04", url:"" },
+  { name:"HBO 2", cat:"hindi", logo:"https://s3.aynaott.com/storage/b64c028d8c0895ed81f3201d5979f7ba", url:"" },
   { name:"Fox business", cat:"hindi", logo:"https://s3.aynaott.com/storage/20e4602dd584784607e5eff3963cdde6", url:"" },
   { name:"Fox 5", cat:"hindi", logo:"https://s3.aynaott.com/storage/4f6486854be670f7458ab60d0402ee42", url:"" },
   { name:"BRAVO", cat:"hindi", logo:"https://s3.aynaott.com/storage/7604a2c87620363fce86b73731b8035d", url:"" },
+  { name:"COMEDY CENTRAL", cat:"hindi", logo:"https://s3.aynaott.com/storage/211d55de947bdf03f5c18b7e30e0d98b", url:"" },
   { name:"COOKING TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/bf9792dc04cace6a25407b6304a35046", url:"" },
   { name:"EPIX TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/c0b0c986890a8c88c3566d93e18cada6", url:"" },
   { name:"FX TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/f403cc315ca6269c5fcbf1875c95d329", url:"" },
@@ -541,6 +511,7 @@ const channels = [
   { name:"9x Jalwa", cat:"hindi", logo:"https://s3.aynaott.com/storage/d2d8f00a60dc64dad6c0181cd86f7869", url:"" },
   { name:"9X Tashan", cat:"hindi", logo:"https://s3.aynaott.com/storage/5d052254516639955d06182690d3fda2", url:"" },
   { name:"Dhinchaak", cat:"hindi", logo:"https://s3.aynaott.com/storage/f4edcca7247bbb4a263a51d7ebb82282", url:"" },
+  { name:"Goldmines", cat:"hindi", logo:"https://s3.aynaott.com/storage/e92e9e2fb70909f3dd30a8d89e644119", url:"" },
   { name:"Manoranjan TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/1a62a70103bac9999411a72b8a8b7ccc", url:"" },
   { name:"Republic Bharat", cat:"hindi", logo:"https://s3.aynaott.com/storage/947715e0a22f16ac21805073ce6eb0b6", url:"" },
   { name:"CBS TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/41536a676b99c1996efbccd8f65df42b", url:"" },
@@ -550,47 +521,37 @@ const channels = [
   { name:"CNBC TV", cat:"hindi", logo:"https://s3.aynaott.com/storage/16a213d06e7362d97cb6085e70c9b5a2", url:"" },
   { name:"Geo ENT", cat:"hindi", logo:"https://s3.aynaott.com/storage/e0d54d73e6b9cf211cd760650467e596", url:"" },
   { name:"Assam Talks", cat:"hindi", logo:"https://s3.aynaott.com/storage/e7d8cff366343b850d04a655c6fbf2ff", url:"" },
-  { name:"HGTV", cat:"hindi", logo:"https://s3.aynaott.com/storage/be15ed692e22ad4b7dcb9d7251ce32a6", url:"" },
+  { name:"HGTV", cat:"explore", logo:"https://s3.aynaott.com/storage/be15ed692e22ad4b7dcb9d7251ce32a6", url:"" },
   // Explore/Inovation
   { name:"Discovery English", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://stream.ottplus.bd/live/discovery_hd_abr/index.m3u8" },
   { name:"Discovery Hindi", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_sd&e=.m3u8" },
   { name:"Discovery Bangla", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://tvsen6.aynaott.com/discovery_hd_bangla/index.m3u8" },
   { name:"Discovery Science", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://stream.ottplus.bd/live/discovery_science_abr/index.m3u8" },
-  { name:"Discovery Turbo", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovery_turbo&e=.m3u8" },
   { name:"Discovery Asia", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://cdn4.skygo.mn/live/disk1/Discovery_Asia/HLSv3-FTA/Discovery_Asia.m3u8" },
-  { name:"Discovary Investigation", cat:"explore", logo:"https://i.postimg.cc/8sQkHrYx/image.jpg", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=discovary_investigation_hd&e=.m3u8" },
   { name:"Net Geo TV", cat:"explore", logo:"https://s3.aynaott.com/storage/2dce8297266bbc9c235c27119f914e1b", url:"https://tvsen6.aynaott.com/natgeo/index.m3u8" },
   { name:"Net Geo Wild", cat:"explore", logo:"https://s3.aynaott.com/storage/2dce8297266bbc9c235c27119f914e1b", url:"https://cors-anywhere.froala.com/84.17.50.102/natgeowild/tracks-v1a1/mono.ts.m3u8" },
-  { name:"Animal Planet", cat:"explore", logo:"https://s3.aynaott.com/storage/18d95033c5d53fc3b159141a842fdeac", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=animal_planet_sd&e=.m3u8" },
-  { name:"Animal Planet Hd", cat:"explore", logo:"https://s3.aynaott.com/storage/18d95033c5d53fc3b159141a842fdeac", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=animal_planet_hd&e=.m3u8" },
-  { name:"BBC Earth", cat:"explore", logo:"https://i.postimg.cc/gcKFgvqK/image.png", url:"https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8" },
-  { name:"Sony BBC Earth", cat:"explore", logo:"https://i.postimg.cc/0QqFfQz6/image.png", url:"https://mflixott.com/tv/toffee-by-maruf/live.php?id=sonybbc_earth_hd&e=.m3u8" },
-  { name:"Outdoor Channel", cat:"explore", logo:"https://i.postimg.cc/KzH9W8jm/image.png", url:"https://amg00718-outdoorchannela-outdoortvnz-samsungnz-lylq4.amagi.tv/playlist/amg00718-outdoorchannela-outdoortvnz-samsungnz/playlist.m3u8" },
-  { name:"Intelligence", cat:"explore", logo:"https://i.postimg.cc/wTcrqHbt/image.png", url:"https://nomawnoijl.gpcdn.net/akash/intelligence/chunks.m3u8" },
-  { name:"History TV ", cat:"explore", logo:"https://i.postimg.cc/bJNMM5Rb/image.png", url:"https://live.thebosstv.com:30443/dwlive/HISTORY/playlist.m3u8" },
-  { name:"SCIFI WORLD", cat:"explore", logo:"https://i.postimg.cc/fLznsyMD/image.png", url:"https://streams2.sofast.tv/ptnr-yupptv/title-SCIFI-WORLD-ENG_yupptv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a985e052-6868-4365-ac45-52afe9008b25/manifest.m3u8" },
-  { name:"Travel Channel", cat:"explore", logo:"https://s3.aynaott.com/storage/a7f87f1e71905ee14429ed26abd29b2a", url:"https://tvsen6.aynaott.com/travelxp/index.m3u8" },
-  { name:"Travel XP", cat:"explore", logo:"https://s3.aynaott.com/storage/a676d2f5ddf6e5f978b3d51876dceecf", url:"https://27c980761ff9437d929e64647afe183a.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-eu_TravelXP/playlist.m3u8" },
-  { name:"WEATHER CH.", cat:"explore", logo:"https://s3.aynaott.com/storage/67e08c23033802b4443baf81d1b048bf", url:"https://tvsen6.aynaott.com/TheWeatherChannel/index.m3u8" },
-  { name:"AccuWeather", cat:"explore", logo:"https://s3.aynaott.com/storage/21992f5e8529a9d2a94b6edf917dbd8f", url:"https://amg00684-accuweather-accuweather-plex-jbd2s.amagi.tv/playlist/amg00684-accuweather-accuweather-plex/playlist.m3u8" },
-  { name:"Fox Weather", cat:"explore", logo:"https://s3.aynaott.com/storage/6dd20ecde19ea3f6b6cf6c040701973e", url:"https://247wlive.foxweather.com/stream/index.m3u8" },
-  { name:"BBC Food", cat:"explore", logo:"https://i.imgur.com/kcmHcSx.png", url:"https://d1e9r0b71zfwk7.cloudfront.net/playlist.m3u8" },
-  { name:"FoodTime", cat:"explore", logo:"https://i.imgur.com/gxCYAwH.png", url:"http://31.148.48.15/Eda_Premium_HD/index.m3u8" },
-  { name:"GEM Food", cat:"explore", logo:"https://i.imgur.com/SMtSinK.png", url:"https://ca-rt.onetv.app/gemfood/index-0.m3u8" },
-  { name:"BBC Food", cat:"explore", logo:"https://i.imgur.com/kcmHcSx.png", url:"https://d1e9r0b71zfwk7.cloudfront.net/playlist.m3u8" },
-  { name:"TLC HD", cat:"explore", logo:"https://s3.aynaott.com/storage/ba3c9fa1144bc65322f8ae3a1bb69cc9", url:"https://tvsen6.aynaott.com/tlc_hd/index.m3u8" },
-  { name:"Food Network", cat:"explore", logo:"https://s3.aynaott.com/storage/582675c375dfa47c2d66e6639fcd2eac", url:"https://tvsen6.aynaott.com/foodnetwork/index.m3u8" },
+  { name:"Travel Channel", cat:"explore", logo:"https://s3.aynaott.com/storage/a7f87f1e71905ee14429ed26abd29b2a", url:"" },
+  { name:"Travel XP", cat:"explore", logo:"https://s3.aynaott.com/storage/a676d2f5ddf6e5f978b3d51876dceecf", url:"" },
+  { name:"TLC HD", cat:"explore", logo:"https://s3.aynaott.com/storage/ba3c9fa1144bc65322f8ae3a1bb69cc9", url:"" },
+  { name:"Food Network", cat:"explore", logo:"https://s3.aynaott.com/storage/582675c375dfa47c2d66e6639fcd2eac", url:"" },
   // Religion
-  { name:"Islamic TV", cat:"religion", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(8).jpeg", url:"https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/islamictvbd.stream/tracks-v1a1/mono.m3u8" },
-  { name:"Makka TV", cat:"religion", logo:"", url:"https://media2.streambrothers.com:1936/8122/8122/chunklist_w1247854077.m3u8" },
+  { name:"Islamic TV", cat:"religion", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(8).jpeg", url:"" },
   { name:"Peace TV Bangla", cat:"religion", logo:"https://i.ibb.co/Gfw89mC/20240804-033102.png", url:"" },
-  { name:"Peace English", cat:"religion", logo:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZHm8MZpsQ_tONDYCnpR2r4jDctpjhfMAAAdZ4_X661ljgo9t7zzE4oZrup_hN2WnN-clZqQPy7bFK0Rh3yHT376J1ZDn7l3jLw65nJ8wo7dr4mjH9Povbddl5Lyuea_yvy89waVOVuRvbc0K3JnRpqC7JJ4j9D3MUfJJZWvBdKz2VSlO9-Qiyt0IN/s600/Nur_20251026_225144_0000.png", url:"https://dzkyvlfyge.erbvr.com/PeaceTvEnglish/tracks-v4a1/mono.m3u8" },
-  { name:"Deen TV", cat:"religion", logo:"https://s3.aynaott.com/storage/66ac3ae1e56001353b69bb5f63ebcc6e", url:"https://tvsen7.aynaott.com/deen/index.m3u8" },
-  { name:"Eman Channel", cat:"religion", logo:"https://s3.aynaott.com/storage/09d759c7bb93fa3fb76014c8936201ce", url:"https://tvsen6.aynaott.com/eman/index.m3u8" },
-  { name:"MADANI TV", cat:"religion", logo:"https://s3.aynaott.com/storage/813fca9bc7df9a4810efe2eb87c57039", url:"https://tvsen7.aynaott.com/MadaniTV/index.m3u8" },
-  { name:"Al Quran", cat:"religion", logo:"", url:"https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8" },
-  { name:"Saudia Quran", cat:"religion", logo:"", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
+  { name:"RTV Islam", cat:"religion", logo:"https://s3.aynaott.com/storage/f00eda9194eb13e8ef1d1387889173bf", url:"" },
+  { name:"Channel Win", cat:"religion", logo:"https://s3.aynaott.com/storage/3458d0d9097a8283a94a13374bcbf5c7", url:"" },
+  { name:"Deen TV", cat:"religion", logo:"https://s3.aynaott.com/storage/66ac3ae1e56001353b69bb5f63ebcc6e", url:"" },
+  { name:"Eman Channel", cat:"religion", logo:"https://s3.aynaott.com/storage/09d759c7bb93fa3fb76014c8936201ce", url:"" },
+  { name:"MADANI TV", cat:"religion", logo:"https://s3.aynaott.com/storage/813fca9bc7df9a4810efe2eb87c57039", url:"" },
+  { name:"WEATHER CH.", cat:"religion", logo:"https://s3.aynaott.com/storage/67e08c23033802b4443baf81d1b048bf", url:"" },
+  { name:"AccuWeather", cat:"religion", logo:"https://s3.aynaott.com/storage/21992f5e8529a9d2a94b6edf917dbd8f", url:"" },
+  { name:"Fox Weather", cat:"religion", logo:"https://s3.aynaott.com/storage/6dd20ecde19ea3f6b6cf6c040701973e", url:"" },
+  { name:"Sky Weather", cat:"religion", logo:"https://s3.aynaott.com/storage/78b7ab973209ec06346cf8acfd8544cd", url:"" },
+  { name:"Saudia Radio", cat:"religion", logo:"https://s3.aynaott.com/storage/76d7d7446ee57ec14ff67c1678725d19", url:"" },
+  { name:"ABN", cat:"religion", logo:"https://s3.aynaott.com/storage/9882913a8d68aa99c0501b64749d6320", url:"" },
+  { name:"CMAC TV", cat:"religion", logo:"https://s3.aynaott.com/storage/14a329b450239b9a4beaa4953c33367b", url:"" },
+  { name:"R Plus", cat:"religion", logo:"https://s3.aynaott.com/storage/9531f970bb7abf30ac2a48f40838c3a1", url:"" },
 ];
+
 const catLabels = {
   bangla:"🍿 Bangla Entertainment", sports:"🏆 Sports Channels",
   news:"📰 Live News & Info", kids:"🧸 Kids Channels",
@@ -753,8 +714,6 @@ document.getElementById("pipBtn").addEventListener("click",()=>{
 renderList();
 // Auto-play first channel
 playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
-</script>
-
 
 // ── ANTI-INSPECT PROTECTION ──
 (function(){
@@ -897,6 +856,5 @@ playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
 })();
 
 </script>
-
 </body>
 </html>
