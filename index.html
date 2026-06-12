@@ -272,6 +272,42 @@
   }
   .sec-header:first-child { border-top: none; margin-top: 0; }
 
+  /* viewer stats */
+  .viewer-stats {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .viewer-pill {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 10px;
+    font-size: 0.75rem; color: var(--text); letter-spacing: 0.5px;
+  }
+  .viewer-pill .dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-live { background: #ff4757; animation: pulse-live 1.5s infinite; }
+  .dot-total { background: var(--gold); }
+  @keyframes pulse-live {
+    0%,100%{ box-shadow: 0 0 0 0 rgba(255,71,87,0.5); }
+    50%{ box-shadow: 0 0 0 5px rgba(255,71,87,0); }
+  }
+  .viewer-num { font-weight: 700; font-size: 0.8rem; color: #fff; }
+  .viewer-label { color: var(--muted); font-size: 0.68rem; }
+
+  /* red circles in header logo */
+  .red-circles {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .red-circle {
+    width: 42px; height: 26px;
+    border: 2.5px solid #e63946;
+    border-radius: 50%;
+    background: transparent;
+    flex-shrink: 0;
+  }
+
   /* nav arrows */
   .nav-btns { display: flex; gap: 8px; }
   .nav-btn {
@@ -302,12 +338,22 @@
     FARHAN<span>TV</span>
   </div>
   <div class="header-right">
-    <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+    <div class="viewer-pill" title="Live viewers right now">
+      <div class="dot dot-live"></div>
+      <span class="viewer-num" id="liveViewers">—</span>
+      <span class="viewer-label">Watching</span>
+    </div>
+    <div class="viewer-pill" title="Total visitors today">
+      <div class="dot dot-total"></div>
+      <span class="viewer-num" id="totalViewers">—</span>
+      <span class="viewer-label">Total Visitors</span>
+    </div>
     <div class="nav-btns">
       <button class="nav-btn" id="prevBtn" title="Previous channel">⏮ Prev</button>
       <button class="nav-btn" id="nextBtn" title="Next channel">Next ⏭</button>
     </div>
     <button class="hdr-btn pip-btn" id="pipBtn" title="Picture in Picture">🔲 PiP</button>
+    <button class="hdr-btn pip-btn" id="fsBtn" title="Fullscreen">⛶ Fullscreen</button>
   </div>
 </header>
 
@@ -769,10 +815,74 @@ document.getElementById("pipBtn").addEventListener("click",()=>{
   }
 });
 
+// Fullscreen
+const fsBtn = document.getElementById("fsBtn");
+fsBtn.addEventListener("click",()=>{
+  const target = document.querySelector(".video-wrap");
+  if(!document.fullscreenElement){
+    (target.requestFullscreen || target.webkitRequestFullscreen || target.mozRequestFullScreen).call(target);
+  } else {
+    (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen).call(document);
+  }
+});
+document.addEventListener("fullscreenchange", ()=>{
+  fsBtn.textContent = document.fullscreenElement ? "✕ Exit FS" : "⛶ Fullscreen";
+});
+document.addEventListener("webkitfullscreenchange", ()=>{
+  fsBtn.textContent = document.fullscreenElement ? "✕ Exit FS" : "⛶ Fullscreen";
+});
+
+// ── Real Visitor & Viewer Tracking ──
+(function(){
+  const NAMESPACE = "farhantv-live";
+  const VISIT_KEY = "total-visitors";
+  const LIVE_KEY  = "live-viewers";
+  const SESSION_KEY = "ftv_session";
+
+  function fmt(n){
+    if(!n || isNaN(n)) return "—";
+    if(n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,"") + "K";
+    return String(n);
+  }
+
+  function setCount(id, val){
+    const el = document.getElementById(id);
+    if(el) el.textContent = fmt(val);
+  }
+
+  // ── Total visitors: hit once per browser session ──
+  if(!sessionStorage.getItem(SESSION_KEY)){
+    sessionStorage.setItem(SESSION_KEY, "1");
+    fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${VISIT_KEY}`)
+      .then(r=>r.json()).then(d=>setCount("totalViewers", d.value)).catch(()=>{});
+  } else {
+    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${VISIT_KEY}`)
+      .then(r=>r.json()).then(d=>setCount("totalViewers", d.value)).catch(()=>{});
+  }
+
+  // ── Live viewers: increment on join, decrement on leave ──
+  function joinLive(){
+    fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${LIVE_KEY}`)
+      .then(r=>r.json()).then(d=>setCount("liveViewers", d.value)).catch(()=>{});
+  }
+  function leaveLive(){
+    fetch(`https://api.countapi.xyz/update/${NAMESPACE}/${LIVE_KEY}?amount=-1`).catch(()=>{});
+  }
+
+  joinLive();
+  window.addEventListener("beforeunload", leaveLive);
+
+  // Refresh live count every 10s
+  setInterval(()=>{
+    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${LIVE_KEY}`)
+      .then(r=>r.json()).then(d=>setCount("liveViewers", Math.max(1, d.value))).catch(()=>{});
+  }, 10000);
+})();
+
 // Init
 renderList();
 // Auto-play first channel
-playChannel(channels.findIndex(c=>c.name==="T Sports HD"));
+playChannel(channels.findIndex(c=>c.name==="FIFA WORLD CUP 2026"));
 </script>
 
 <script>
