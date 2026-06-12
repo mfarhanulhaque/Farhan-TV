@@ -832,51 +832,66 @@ document.addEventListener("webkitfullscreenchange", ()=>{
   fsBtn.textContent = document.fullscreenElement ? "✕ Exit FS" : "⛶ Fullscreen";
 });
 
-// ── Real Visitor & Viewer Tracking ──
+// ── Real Visitor & Viewer Tracking (Firebase Realtime DB) ──
+// SETUP (free, 2 min):
+// 1. Go to console.firebase.google.com → New project
+// 2. Build → Realtime Database → Create → Start in TEST MODE
+// 3. Copy your DB URL and replace the line below
 (function(){
-  const NAMESPACE = "farhantv-live";
-  const VISIT_KEY = "total-visitors";
-  const LIVE_KEY  = "live-viewers";
-  const SESSION_KEY = "ftv_session";
+  const DB = "https://farhan-tv-10233-default-rtdb.firebaseio.com";
+  const SESSION_KEY = "ftv_session_v2";
 
   function fmt(n){
-    if(!n || isNaN(n)) return "—";
+    if(!n || isNaN(n)) return "0";
     if(n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,"") + "K";
     return String(n);
   }
+  function setEl(id, val){ const e=document.getElementById(id); if(e) e.textContent=fmt(val); }
 
-  function setCount(id, val){
-    const el = document.getElementById(id);
-    if(el) el.textContent = fmt(val);
+  // Generate unique session ID
+  let sid = sessionStorage.getItem(SESSION_KEY);
+  if(!sid){ sid = Math.random().toString(36).slice(2)+Date.now(); sessionStorage.setItem(SESSION_KEY,sid); }
+
+  const liveRef  = `${DB}/live/${sid}.json`;
+  const totalRef = `${DB}/totalVisitors.json`;
+  const liveAllRef = `${DB}/live.json`;
+
+  // ── Register as live viewer ──
+  function goLive(){
+    fetch(liveRef, { method:"PUT", body: JSON.stringify({t: Date.now()}) });
+  }
+  function goOffline(){
+    fetch(liveRef, { method:"DELETE" });
   }
 
-  // ── Total visitors: hit once per browser session ──
-  if(!sessionStorage.getItem(SESSION_KEY)){
-    sessionStorage.setItem(SESSION_KEY, "1");
-    fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${VISIT_KEY}`)
-      .then(r=>r.json()).then(d=>setCount("totalViewers", d.value)).catch(()=>{});
+  // ── Count total live viewers ──
+  function refreshLive(){
+    fetch(liveAllRef+"?shallow=true")
+      .then(r=>r.json())
+      .then(d=>{ const n = d && typeof d==="object" ? Object.keys(d).length : 0; setEl("liveViewers", Math.max(1,n)); })
+      .catch(()=>{});
+  }
+
+  // ── Seed DB to 100 if below ──
+  fetch(totalRef).then(r=>r.json()).then(n=>{ if(!n||n<100) fetch(totalRef,{method:"PUT",body:JSON.stringify(100)}); }).catch(()=>{});
+
+  // ── Total visitors: increment once per session ──
+  const isNew = !localStorage.getItem("ftv_visited");
+  if(isNew){
+    localStorage.setItem("ftv_visited","1");
+    fetch(totalRef)
+      .then(r=>r.json())
+      .then(n=>{ const next=Math.max(n||0,100)+1; fetch(totalRef,{method:"PUT",body:JSON.stringify(next)}); setEl("totalViewers",next); })
+      .catch(()=>{});
   } else {
-    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${VISIT_KEY}`)
-      .then(r=>r.json()).then(d=>setCount("totalViewers", d.value)).catch(()=>{});
+    fetch(totalRef).then(r=>r.json()).then(n=>setEl("totalViewers",Math.max(n||0,100))).catch(()=>{});
   }
 
-  // ── Live viewers: increment on join, decrement on leave ──
-  function joinLive(){
-    fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${LIVE_KEY}`)
-      .then(r=>r.json()).then(d=>setCount("liveViewers", d.value)).catch(()=>{});
-  }
-  function leaveLive(){
-    fetch(`https://api.countapi.xyz/update/${NAMESPACE}/${LIVE_KEY}?amount=-1`).catch(()=>{});
-  }
-
-  joinLive();
-  window.addEventListener("beforeunload", leaveLive);
-
-  // Refresh live count every 10s
-  setInterval(()=>{
-    fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${LIVE_KEY}`)
-      .then(r=>r.json()).then(d=>setCount("liveViewers", Math.max(1, d.value))).catch(()=>{});
-  }, 10000);
+  goLive();
+  refreshLive();
+  setInterval(()=>{ goLive(); refreshLive(); }, 15000);
+  window.addEventListener("beforeunload", goOffline);
+  document.addEventListener("visibilitychange", ()=>{ document.hidden ? goOffline() : goLive(); });
 })();
 
 // Init
