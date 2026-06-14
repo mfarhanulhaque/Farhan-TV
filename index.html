@@ -958,78 +958,7 @@ playChannel(channels.findIndex(c=>c.name==="FIFA"));
     return false;
   });
 
-  // 5. DevTools detection
-  var devDetect = function(){
 
-    var threshold = 260;
-
-    if(
-      (window.outerWidth - window.innerWidth) > threshold ||
-      (window.outerHeight - window.innerHeight) > threshold
-    ){
-
-      document.body.innerHTML = `
-      <div style="
-        position:fixed;
-        inset:0;
-        background:
-        linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),
-        url('https://blogger.googleusercontent.com/img/a/AVvXsEg3yw4jBjomagugVcXYG7dWqQbJ-HVYuKAoi4fiV_M6cCw6imOo943ZDeg-nyHrnJYoe5ZKACI5J_y1D20SNDEsRqHAsmWmxUTW-BajZtut3TYXM0qRwE0k3jeouZ7kIdaslVq7bvr-iV_qiDcSoB4UDy2GP8QPN09sYcD5KUWUMcoYJPgSRaHh8YoyY2k=w625-h351')
-        center center / cover repeat;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        flex-direction:column;
-        color:#e63946;
-        font-family:Rajdhani,sans-serif;
-        z-index:999999;
-      ">
-        <div style="
-          background:rgba(0,0,0,.45);
-          padding:40px;
-          border-radius:18px;
-          backdrop-filter:blur(0px);
-          border:1px solid rgba(0,0,0,0);
-        ">
-          <div style="font-size:70px;">🔒</div>
-
-          <div style="
-            font-size:28px;
-            letter-spacing:4px;
-            font-weight:700;
-            margin-top:10px;
-          ">
-            I am watching you
-          </div>
-
-          <div style="
-            margin-top:12px;
-            color:#d0d0d0;
-            font-size:14px;
-            letter-spacing:1px;
-          ">
-            What are you looking for?
-            
-          </div>
-          <div style="
-            margin-top:12px;
-            color:#d0d0d0;
-            font-size:14px;
-            letter-spacing:1px;
-          ">
-            Note: Do not zoom in 100 up
-            
-          </div>
-        </div>
-      </div>
-      `;
-
-    }
-  };
-
-  setInterval(devDetect, 1000);
-  window.addEventListener("resize", devDetect);
 
   // 6. Console trap
   var _c = 0;
