@@ -193,6 +193,14 @@
     font-family: 'Rajdhani', sans-serif;
     font-size: 0.65rem; color: var(--muted); flex-shrink: 0;
   }
+  .status-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 5px currentColor;
+  }
+  .status-dot.on      { background: #2ecc71; color: #2ecc71; }
+  .status-dot.off     { background: #e74c3c; color: #e74c3c; }
+  .status-dot.pending { background: #888; color: #888; box-shadow: none; animation: blink 1s infinite; }
 
   /* ── PLAYER AREA ── */
   .player-area {
@@ -340,12 +348,12 @@
     <div class="viewer-pill" title="Live viewers right now">
       <div class="dot dot-live"></div>
       <span class="viewer-num" id="liveViewers">—</span>
-      <span class="viewer-label">Watching</span>
+      <span class="viewer-label">👁</span>
     </div>
     <div class="viewer-pill" title="Total visitors today">
       <div class="dot dot-total"></div>
       <span class="viewer-num" id="totalViewers">—</span>
-      <span class="viewer-label">Total Visitors</span>
+      <span class="viewer-label">📈</span>
     </div>
     <div class="nav-btns">
       <button class="nav-btn" id="prevBtn" title="Previous channel">⏮ Prev</button>
@@ -411,7 +419,6 @@ const channels = [
   { name:"FIFA | English | TSN1", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://trs1.aynaott.com/tsn1/tracks-v1a1/mono.ts.m3u8" },
   { name:"FIFA | English | TSN2", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://trs1.aynaott.com/tsn2/tracks-v1a1/mono.ts.m3u8" },
   { name:"FIFA | English | TSN", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://ataide0.mercadodavoz.com.br/tsn.m3u8" },
-  { name:"FIFA | English | FOX 4K", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://602.formaturamaxi.com.br/fox.m3u8" },
   { name:"FIFA | English | T Sports", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://trs1.aynaott.com/tsports/tracks-v1a1/mono.ts.m3u8" },
   { name:"FIFA | English | DAZN", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pub-4b4b47ec811e458cadb289e7ea20ea13.r2.dev/sp/index.m3u8" },
   { name:"FIFA | Arabic | Bein", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://edge22.776740.ir.cdn.ir/hls2/sport.m3u8" },
@@ -668,6 +675,9 @@ const catLabels = {
 let currentCat = "all";
 let currentIdx = -1;
 let hls = null;
+const channelStatus = {}; // idx -> 'on' | 'off' | 'pending'
+// Pre-fill no-URL channels as 'off' immediately
+channels.forEach((c,i) => { if(!c.url) channelStatus[i] = 'off'; });
 
 const chList = document.getElementById("chList");
 const chCount = document.getElementById("chCount");
@@ -711,11 +721,22 @@ function renderList() {
         <div class="ch-name">${c.name}</div>
         <div class="ch-cat">${catLabels[c.cat]?.split(" ").slice(1).join(" ")||c.cat}</div>
       </div>
-      <div class="ch-num">${String(c.idx+1).padStart(3,"0")}</div>
+      <div class="status-dot ${channelStatus[c.idx] ?? (c.url ? 'pending' : 'off')}" title="${{on:'Working',off:'Not working',pending:'Checking...'}[channelStatus[c.idx]] ?? (c.url?'Checking...':'Not working')}"></div>
     `;
     item.addEventListener("click", ()=> playChannel(c.idx));
     chList.appendChild(item);
   });
+}
+
+function setDotStatus(idx, status) {
+  channelStatus[idx] = status;
+  const item = chList.querySelector(`.ch-item[data-idx="${idx}"]`);
+  if(!item) return;
+  const dot = item.querySelector(".status-dot");
+  if(!dot) return;
+  dot.classList.remove("on","off","pending");
+  dot.classList.add(status);
+  dot.title = status==="on" ? "Working" : status==="off" ? "Not working" : "Checking...";
 }
 
 function playChannel(idx) {
@@ -736,16 +757,17 @@ function playChannel(idx) {
   errMsg.style.display = "none";
 
   if(!ch.url) {
-    // No URL: just show placeholder (stream URLs not included in static HTML)
+    setDotStatus(idx, "off");
     setTimeout(()=>{
       loadRing.style.display = "none";
       overlay.style.display = "none";
-      // show thumbnail as placeholder
       vid.poster = ch.logo;
       vid.src = "";
     }, 800);
     return;
   }
+
+  setDotStatus(idx, "pending");
 
   if(hls) { hls.destroy(); hls = null; }
   vid.src = "";
@@ -757,14 +779,24 @@ function playChannel(idx) {
     hls.on(Hls.Events.MANIFEST_PARSED, ()=>{
       vid.play().catch(()=>{});
       overlay.style.display = "none";
+      setDotStatus(idx, "on");
     });
     hls.on(Hls.Events.ERROR, (_,data)=>{
-      if(data.fatal) { loadRing.style.display="none"; errMsg.style.display="block"; }
+      if(data.fatal) {
+        loadRing.style.display="none";
+        errMsg.style.display="block";
+        setDotStatus(idx, "off");
+      }
     });
   } else {
     vid.src = ch.url;
-    vid.play().then(()=>{ overlay.style.display="none"; }).catch(()=>{
-      loadRing.style.display="none"; errMsg.style.display="block";
+    vid.play().then(()=>{
+      overlay.style.display="none";
+      setDotStatus(idx, "on");
+    }).catch(()=>{
+      loadRing.style.display="none";
+      errMsg.style.display="block";
+      setDotStatus(idx, "off");
     });
   }
 }
@@ -910,6 +942,37 @@ document.addEventListener("webkitfullscreenchange", ()=>{
 renderList();
 // Auto-play first channel
 playChannel(channels.findIndex(c=>c.name==="FIFA"));
+
+// ── Background Channel Health Check ──
+(async function checkAllChannels() {
+  const BATCH = 6;       // parallel requests at a time
+  const TIMEOUT = 7000;  // ms per request
+
+  async function probeUrl(url) {
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), TIMEOUT);
+      await fetch(url, { mode: 'no-cors', signal: ctrl.signal });
+      clearTimeout(timer);
+      return true;  // server responded (opaque ok — means reachable)
+    } catch(e) {
+      return false; // network error or timeout
+    }
+  }
+
+  const toCheck = channels
+    .map((c,i) => ({c, i}))
+    .filter(({c}) => c.url); // only channels with a URL
+
+  for(let start = 0; start < toCheck.length; start += BATCH) {
+    const batch = toCheck.slice(start, start + BATCH);
+    await Promise.all(batch.map(async ({c, i}) => {
+      setDotStatus(i, 'pending');
+      const ok = await probeUrl(c.url);
+      setDotStatus(i, ok ? 'on' : 'off');
+    }));
+  }
+})();
 </script>
 
 <script>
