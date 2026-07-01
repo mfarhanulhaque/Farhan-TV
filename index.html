@@ -415,7 +415,7 @@
 
 <script>
 const channels = [
-  // Fifa
+  // FIFA 26
   { name:"FIFA", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://flive.pochonderbazarbd.workers.dev/" },
   { name:"FIFA | English | TSN 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://rykvnfrpqqxmllitoewi.supabase.co/functions/v1/dynamic-worker?url=Q09k4OukERocGAoHFRoTLpNRopWhojWRopWkQVbmFk6nI0zf&headers=3OymHRdJERI_4UgRHGHJIRIRFhNcE0zKLpycyCv_EU1Uq1yjin" },
   { name:"FIFA | English | TSN 4", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a49.azplay40.me/hls/streama262566/index.m3u8?cst=f633082a93393346643550bdfa6d350c" },
@@ -501,16 +501,18 @@ const channels = [
   { name:"Channel I", cat:"bangla", logo:"https://s3.aynaott.com/storage/8e998f20a9cc52cb8eb1f52a5bf38204", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8" },
   { name:"NTV", cat:"bangla", logo:"https://s3.aynaott.com/storage/1a619c9b917eb35898020cd323e415a7", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8" },
   { name:"Bangla Vision", cat:"bangla", logo:"https://s3.aynaott.com/storage/788ab3e49b2aa6af247722762ed6e72a", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/index.m3u8" },
+  { name:"S TV", cat:"bangla", logo:"https://i.ibb.co.com/Vp2HKT0s/Channel-S-TV.png", url:"https://app.ncare.live/live-orgin/channels.stream/live-orgin/channels.stream/chunks.m3u8" },
   { name:"RTV", cat:"bangla", logo:"https://s3.aynaott.com/storage/094587a26f2c5e4f2962104728ec8c5d", url:"https://trs1.aynaott.com/RtvHD/tracks-v1a1/mono.ts.m3u8" },
   { name:"ATN Bangla", cat:"bangla", logo:"https://s3.aynaott.com/storage/eff41809fca04f7c1da5481e135d7913", url:"https://trs1.aynaott.com/atnbangla/tracks-v1a1/mono.ts.m3u8" },
-  { name:"ETV", cat:"bangla", logo:"https://s3.aynaott.com/storage/8a1af81802b0728c064c2adabcdc72c8", url:"https://trs1.aynaott.com/etv/tracks-v1a1/mono.ts.m3u8" },
+  { name:"ETV", cat:"bangla", logo:"https://s3.aynaott.com/storage/8a1af81802b0728c064c2adabcdc72c8", url:"https://master-proxy.wispy-boat-fc77.workers.dev/?url=https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8" },
   { name:"Maasranga TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/1b5cb8c7901739cd7d201a38d2ab4737", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8" },
   { name:"Deepto TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/76717b7a598a30815a1bdb16ecd3af6c", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8" },
+  { name:"Deepto TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/76717b7a598a30815a1bdb16ecd3af6c", url:"https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8" },
   { name:"Gazi TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/417a833f6d83021c99bfc3d4176610f4", url:"https://trs1.aynaott.com/Ravc7gPCZpxk/tracks-v1a1/mono.ts.m3u8" },
-  { name:"Desh TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/d10390e5434e8cb44172257abd714beb", url:"https://trs1.aynaott.com/deshtv/tracks-v1a1/mono.ts.m3u8" },
-  { name:"Boishakhi TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/58658d4594ca1ff3c5031c9d8e3d9fc0", url:"https://trs1.aynaott.com/boishakhitv/tracks-v1a1/mono.ts.m3u8" },
+  { name:"Desh TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/d10390e5434e8cb44172257abd714beb", url:"https://bozztv.com/rongo/rongo-DeshTV/index.m3u8" },
+  { name:"Boishakhi TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/58658d4594ca1ff3c5031c9d8e3d9fc0", url:"https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8" },
   { name:"Channel 9", cat:"bangla", logo:"https://s3.aynaott.com/storage/a959f06b4fc9e1421f867b6c1601fe43", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1729/output/index.m3u8" },
-  { name:"Asian TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/5282cec3a2e9349b750540d658cf1b6c", url:"https://trs1.aynaott.com/asiantv/tracks-v1a1/mono.ts.m3u8" },
+  { name:"Asian TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/5282cec3a2e9349b750540d658cf1b6c", url:"https://mtlivestream.com/hls/asian/ytlive/index.m3u8" },
   { name:"SA TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/f710d2ff532cb7e7b75566232c5b72d3", url:"https://trs1.aynaott.com/satv/tracks-v1a1/mono.ts.m3u8" },
   { name:"Bangla TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/e42ecfa90e3d6b15bdb7fea5ef673864", url:"https://trs1.aynaott.com/banglatv/tracks-v1a1/mono.ts.m3u8" },
   { name:"Ananda TV", cat:"bangla", logo:"https://s3.aynaott.com/storage/897698f593fc07974fc46881a440733d", url:"https://trs1.aynaott.com/anandatv/tracks-v1a1/mono.ts.m3u8" },
@@ -540,6 +542,7 @@ const channels = [
   { name:"Ekhon TV", cat:"news", logo:"https://s3.aynaott.com/storage/274c30c492e8795c8011d0129113f4bc", url:"https://trs1.aynaott.com/ekhontv/tracks-v1a1/mono.ts.m3u8" },
   { name:"News 24 BD", cat:"news", logo:"https://s3.aynaott.com/storage/7c002f22c02096b0d1ba833ae9ea6d5b", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1708/output/index.m3u8" },
   { name:"CNN", cat:"news", logo:"https://s3.aynaott.com/storage/e0b6da4715f468eb39591911a0597546", url:"https://trs1.aynaott.com/cnn/tracks-v1a1/mono.ts.m3u8" },
+  { name:"Jago News", cat:"news", logo:"https://i.ibb.co.com/KpRt3cT5/Jago-News-24.png", url:"https://app.ncare.live/live-orgin/jagonews24.stream/live-orgin/jagonews24.stream/chunks.m3u8" },
   { name:"AlJazeera", cat:"news", logo:"https://s3.aynaott.com/storage/5d707a103f48d8f9f1634f1b70e2ecdf", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8" },
   { name:"DW News", cat:"news", logo:"https://s3.aynaott.com/storage/0ce159bdea29fce7e3e85d12bc8a10c5", url:"https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8" },
   { name:"NHK World", cat:"news", logo:"https://s3.aynaott.com/storage/d969a37a7e1bbd49449ae092d34f0549", url:"https://trs1.aynaott.com/nhkworld/tracks-v1a1/mono.ts.m3u8" },
