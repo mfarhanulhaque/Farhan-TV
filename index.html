@@ -375,6 +375,7 @@
   <button class="tab-scroll-btn" id="tabLeft">❮</button>
   <div class="tabs" id="tabs">
       <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="fifa">Fifa</button>
       <button class="tab" data-cat="sports">Sports</button>
       <button class="tab" data-cat="bangla">Bangla</button>
       <button class="tab" data-cat="news">News</button>
@@ -414,26 +415,26 @@
 
 <script>
 const channels = [
+  // Fifa
+  { name:"FIFA", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://flive.pochonderbazarbd.workers.dev/" },
+  { name:"FIFA | English | TSN 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://rykvnfrpqqxmllitoewi.supabase.co/functions/v1/dynamic-worker?url=Q09k4OukERocGAoHFRoTLpNRopWhojWRopWkQVbmFk6nI0zf&headers=3OymHRdJERI_4UgRHGHJIRIRFhNcE0zKLpycyCv_EU1Uq1yjin" },
+  { name:"FIFA | English | TSN 4", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a49.azplay40.me/hls/streama262566/index.m3u8?cst=f633082a93393346643550bdfa6d350c" },
+  { name:"FIFA | English | TSN 4", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a85.azplay40.me/hls/streama262566/index.m3u8?cst=2a79dd007b8d6dd925ad4f253b800954" },
+  { name:"FIFA | English | Bioscope", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://d1kep4defqj6r1.cloudfront.net/out/v1/4e21d5a122c549289dd6feab259266e8/index_1.m3u8" },
+  { name:"FIFA | English | iScreen", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://cricxtv.fun/isceen.php?file=https://tc-sg.rockstreamer.com/v1/019ed91616121ea540a8171c8e801f/019ed92ac80315fc600b1796d4ad8b/tc_sg_1_1080p.m3u8&is_playlist=1&nocache=1782870978519" },
+  { name:"FIFA | English | Fox", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://andro.226503.xyz/checklist/androstreamliveexn2.m3u8" },
+  { name:"FIFA | English | Fox", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a0103339.s3.us-east-2.amazonaws.com/east_1080p30.m3u8" },
+  { name:"FIFA | English | Fox", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://tv.motiur.xyz/api/proxy.php?url=https%3A%2F%2Fpub-4aa1aaf3896e4dd0923f238800b68845.r2.dev%2Fkickbd-bein4k%2Fmain.m3u8" },
+  { name:"FIFA | English | RTE", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://full.test1234well.store/simpch4/tracks-v1a1/mono.m3u8?token=eyJzdHJlYW0iOiJzaW1wY2g0IiwiaXAiOiIwLjAuMC4wIiwiZXhwIjoxNzgyODc1NDY0LCJyYW5kIjoiY2Y0MWZmNjZjNjgwNmE3ZSJ9.4d54523e227173ce91d6866ced5ac8aecb294c119ac77ba0ece2c5dd85da5305" },
+  { name:"FIFA | English | Somoy TV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
+  { name:"FIFA | Dpanish | Bein", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://tv.dsat.bd/p/eyJ1IjoiaHR0cHM6Ly8xbnlhbGVyLnN0cmVhbWhvc3RpbmdjZG4udG9wL3N0cmVhbS8yMy9pbmRleC5tM3U4IiwiZSI6MTc4Mjg4MzUzNiwiYyI6MTE5NTZ9.4daf155ac133d061?rewrite=1" },
+  { name:"FIFA | Vietnam | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live05.msdht.app/live/24561735.m3u8" },
+  { name:"FIFA | Vietnam | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pull.niues.live/live/stream-534219_lhd.m3u8" },
+  { name:"FIFA | Vietnam | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://tdlive.yarncdn.live/live/tdtv_blv_taovannghe/playlist.m3u8" },
+  { name:"FIFA | Chinese | ELTA TV ", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.666666.zip/migu/1.m3u8" },
+  { name:"FIFA | Chinese | CCTV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.666666.zip/cctv/5.m3u8" },
+  { name:"FWC CazéTV Mobile Only", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
   // Sports
-  { name:"FIFA", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://flive.pochonderbazarbd.workers.dev/" },
-  { name:"FIFA | English | TSN 4", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a49.azplay40.me/hls/streama262566/index.m3u8?cst=f633082a93393346643550bdfa6d350c" },
-  { name:"FIFA | English | TSN 4", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a85.azplay40.me/hls/streama262566/index.m3u8?cst=2a79dd007b8d6dd925ad4f253b800954" },
-  { name:"FIFA | English | TSN 3", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://full.test1234well.store/simpch3/tracks-v1a1/mono.m3u8?token=eyJzdHJlYW0iOiJzaW1wY2gzIiwiaXAiOiIwLjAuMC4wIiwiZXhwIjoxNzgyODc0Mjk4LCJyYW5kIjoiNmM4ZjliNjQ1Y2ZhZWExMSJ9.51fbdc93fa4e9b2c8251b60e3bd8514acba0cff10724dc6454a8928341d40e75" },
-  { name:"FIFA | English | Bioscope", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://d1kep4defqj6r1.cloudfront.net/out/v1/4e21d5a122c549289dd6feab259266e8/index_1.m3u8" },
-  { name:"FIFA | English | iScreen", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://cricxtv.fun/isceen.php?file=https://tc-sg.rockstreamer.com/v1/019ed91616121ea540a8171c8e801f/019ed92ac80315fc600b1796d4ad8b/tc_sg_1_1080p.m3u8&is_playlist=1&nocache=1782870978519" },
-  { name:"FIFA | English | Fox", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://andro.226503.xyz/checklist/androstreamliveexn2.m3u8" },
-  { name:"FIFA | English | Fox", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://a0103339.s3.us-east-2.amazonaws.com/east_1080p30.m3u8" },
-  { name:"FIFA | English | Fox", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://tv.motiur.xyz/api/proxy.php?url=https%3A%2F%2Fpub-4aa1aaf3896e4dd0923f238800b68845.r2.dev%2Fkickbd-bein4k%2Fmain.m3u8" },
-  { name:"FIFA | English | RTE", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://full.test1234well.store/simpch4/tracks-v1a1/mono.m3u8?token=eyJzdHJlYW0iOiJzaW1wY2g0IiwiaXAiOiIwLjAuMC4wIiwiZXhwIjoxNzgyODc1NDY0LCJyYW5kIjoiY2Y0MWZmNjZjNjgwNmE3ZSJ9.4d54523e227173ce91d6866ced5ac8aecb294c119ac77ba0ece2c5dd85da5305" },
-  { name:"FIFA | English | PTV", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pub-85819be5176c4d29bb0ce67fa13e15ab.r2.dev/en/index.m3u8" },
-  { name:"FIFA | English | Somoy TV", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-  { name:"FIFA | Arabic | Bein", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://edge22.776740.ir.cdn.ir/hls2/sport.m3u8" },
-  { name:"FIFA | Vietnam | Web", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live05.msdht.app/live/24561735.m3u8" },
-  { name:"FIFA | Vietnam | Web", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pull.niues.live/live/stream-534219_lhd.m3u8" },
-  { name:"FIFA | Vietnam | Web", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://tdlive.yarncdn.live/live/tdtv_blv_taovannghe/playlist.m3u8" },
-  { name:"FIFA | Chinese | ELTA TV ", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.666666.zip/migu/1.m3u8" },
-  { name:"FIFA | Chinese | CCTV", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.666666.zip/cctv/5.m3u8" },
-  { name:"FWC CazéTV Mobile Only", cat:"sports", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
   { name:"FIFA+ 1", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" },
   { name:"FIFA+ 2", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8" },
   { name:"Tapmad", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://bpl24middleeast.akamaized.net/hls/live/2109311/P2s6L-FiN@L-World_Feed/master.m3u8" },
