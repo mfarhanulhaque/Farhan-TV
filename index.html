@@ -375,6 +375,7 @@
   <button class="tab-scroll-btn" id="tabLeft">❮</button>
   <div class="tabs" id="tabs">
       <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="live">Live Sports</button>
       <button class="tab" data-cat="sports">Sports</button>
       <button class="tab" data-cat="bangla">Bangla</button>
       <button class="tab" data-cat="news">News</button>
@@ -415,10 +416,16 @@
 
 <script>
 const channels = [
+  // Live Sports
+  { name:"Tapmad 1", cat:"live", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://seriealeague.akamaized.net/hls/live/2107107/tap-BK-PSL-D1-E/master.m3u8" },
+  { name:"Ten Cricket", cat:"live", logo:"https://i.postimg.cc/W4zQ3KQD/image.png", url:"https://stream.ottplus.live/live/ten_cricket_hd_abr/live/ten_cricket_hd_720/chunks.m3u8" },
+  { name:"Sony Sports 1", cat:"live", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://stream.ottplus.live/live/ten_1_hd_abr/live/ten_1_hd_720/chunks.m3u8" },
+  { name:"Sony Sports 2", cat:"live", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://stream.ottplus.live/live/ten_2_hd_abr/live/ten_2_hd_720/chunks.m3u8" }, 
+  { name:"Sony Sports 5", cat:"live", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://stream.ottplus.live/live/ten_5_hd_abr/live/ten_5_hd_720/chunks.m3u8" }, 
+  { name:"Willow HD TV", cat:"live", logo:"https://s3.aynaott.com/storage/94a778ec3219f7eb54bdf1ee07a95788", url:"https://warm-caverns-48629-92fab798385f.herokuapp.com/https://d36r8jifhgsk5j.cloudfront.net/Willow_TV.m3u8" },
+  { name:"Star Sports 1", cat:"live", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png", url:"https://tvsen7.aynascope.net/sspts1/index.m3u8" },
   // Sports
-  { name:"T Sports 1", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
-  { name:"T Sports 2", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://khela24.space/api/public/iptv-proxy?u=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
-  { name:"T Sports 3", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://bdixserver.tvhunter.top/ant1009/tracks-v1a1/mono.m3u8" },
+  { name:"T Sports", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://khela24.space/api/public/iptv-proxy?u=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
   { name:"PTV Sports", cat:"sports", logo:"https://s3.aynaott.com/storage/9d9d7cbfba5a8ceea648bbd963ad1014", url:"https://www.streamsports.site/api/stream-proxy?url=http://103.151.60.204:881/PTV/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
   { name:"A sports", cat:"sports", logo:"https://s3.aynaott.com/storage/64de30d2df9b2a888cb73f17614a9a8b", url:"https://www.streamsports.site/api/stream-proxy?url=http://103.151.60.204:881/A-Sports/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
   { name:"Sky Sports Cricket", cat:"sports", logo:"https://tflix.su/wp-content/uploads/2026/04/Sky-Sports-Cricket-600x300.png", url:"https://www.streamsports.site/api/stream-proxy?url=http://193.47.62.41/hls/XAXAXA.m3u8" },
@@ -434,12 +441,10 @@ const channels = [
   { name:"Sony Sports 5", cat:"sports", logo:"https://i.postimg.cc/284mRsDq/image.png", url:"https://stream.ottplus.live/live/ten_5_hd_abr/live/ten_5_hd_720/chunks.m3u8" }, 
   { name:"TNT Sports", cat:"sports", logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/TNT_Sports_2021_logo.svg/960px-TNT_Sports_2021_logo.svg.png", url:"https://khela24.space/api/public/iptv-proxy?u=https://river-6-606.rtbcdn.ru/stream/genetta-312.m9.rutube.ru/fN7WHtm3N7lUtW48GhcmjA/1784976981/3aa782bace452e7c4b9f81d767512147/1080p_stream.m3u8" }, 
   { name:"Cricket Gold", cat:"sports", logo:"https://s3.aynaott.com/storage/7d20b575edc4e4b5276faa8c246e72a4", url:"https://streams2.sofast.tv/scheduler/scheduleMaster/418.m3u8" },
-  { name:"Tapmad 1", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://curly-surf-da2d.hasannirob234.workers.dev/https://saseries.akamaized.net/hls/live/2110097/ICCt20-tapmad/level_1.m3u8?referer=&ua=Mozilla/5.0%20(Linux;%20Android%2010;%20Mi%20Box/MiTV)%20AppleWebKit/537.36%20(KHTML,%20Joint)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/90.0.4430.210%20Safari/537.36" },
+  { name:"Tapmad 1", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://seriealeague.akamaized.net/hls/live/2107107/tap-BK-PSL-D1-E/master.m3u8" },
   { name:"Tapmad 2", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://seriealeague.akamaized.net/hls/live/2107107/Tapmad-KjL52/master.m3u8" },
-  { name:"Tapmad 3", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://seriealeague.akamaized.net/hls/live/2107107/tap-BK-PSL-D1-E/master.m3u8" },
-  { name:"Tapmad 4", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://bpl24middleeast.akamaized.net/hls/live/2109311/P2s6L-FiN@L-World_Feed/master.m3u8" },
-  { name:"Tapmad 5", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-258tjui/master.m3u8" },
-  { name:"Tapmad 6", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://biostartvworld.pages.dev/biostartvworld.m3u?c=aHR0cHM6Ly9icGwyNG1pZGRsZWVhc3QuYWthbWFpemVkLm5ldC9obHMvbGl2ZS8yMTA5MzExL3RhcG1hZC0yNTh0anVpL21hc3Rlci5tM3U4&ext=.m3u8" },
+  { name:"Tapmad 3", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://bpl24middleeast.akamaized.net/hls/live/2109311/P2s6L-FiN@L-World_Feed/master.m3u8" },
+  { name:"Tapmad 4", cat:"sports", logo:"https://i.postimg.cc/Z5bxmGvH/image.png", url:"https://bpl24middleeast.akamaized.net/hls/live/2109311/tapmad-258tjui/master.m3u8" },
   { name:"ESPN", cat:"sports", logo:"https://s3.aynaott.com/storage/b46df1959322aa48d270a6b163234c76", url:"https://trs1.aynaott.com/espn/tracks-v1a1/mono.ts.m3u8" },
   { name:"FIFA+ 1", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" },
   { name:"FIFA+ 2", cat:"sports", logo:"https://i.postimg.cc/MTJ71krN/image.png", url:"https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8" },
@@ -977,7 +982,7 @@ document.addEventListener("webkitfullscreenchange", ()=>{
 // Init
 renderList();
 // Auto-play first channel
-playChannel(channels.findIndex(c=>c.name==="FIFA"));
+playChannel(channels.findIndex(c=>c.name==="Star Sports 1"));
 
 // ── Background Channel Health Check ──
 (async function checkAllChannels() {
