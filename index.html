@@ -375,7 +375,6 @@
   <button class="tab-scroll-btn" id="tabLeft">❮</button>
   <div class="tabs" id="tabs">
       <button class="tab active" data-cat="all">All</button>
-      <button class="tab" data-cat="fifa">FIFA 26</button>
       <button class="tab" data-cat="sports">Sports</button>
       <button class="tab" data-cat="bangla">Bangla</button>
       <button class="tab" data-cat="news">News</button>
@@ -384,6 +383,7 @@
       <button class="tab" data-cat="others">Others</button>
       <button class="tab" data-cat="explore">Explore/Inovation</button>
       <button class="tab" data-cat="religion">Religion</button>
+      <button class="tab" data-cat="fifa">FIFA 26</button>
     </div>
   <button class="tab-scroll-btn" id="tabRight">❯</button>
 </div>
@@ -415,37 +415,6 @@
 
 <script>
 const channels = [
-  // FIFA 26
-  { name:"FIFA", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://khela24.space/api/public/iptv-proxy?u=https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8" },
-  { name:"FIFA | Irani | IRIB TV 4k", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://khela24.space/api/public/iptv-proxy?u=https://live-aburayhan1101.telewebion.ir/ek/faratar/live/2160p/index.m3u8" },
-  { name:"FIFA | Spanish | TELE", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream2/master_720.m3u8" },
-  { name:"FIFA | Spanish | Fussball", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://biostartvworld.pages.dev/api/bein-sports-fifa.m3u8?key=aHR0cHM6Ly9jcDExLmFkYWJtZWRpYS5jb20vaGxzMi9zcG9ydC5tM3U4P25vY2FjaGU9MTc4MjA1NzIxNDQ2MHx8fHx8fHt9" },
-  { name:"FIFA | Spanish | Win Sports", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://khela24.space/api/public/iptv-proxy?u=http://138.186.23.7:8082/WINSPORT/tracks-v1a1/mono.ts.m3u8&exp=1784167200&sig=61d0414725507fa29ffe50c3e11a37c7d2ebc1c8b1c5cf11bb15c7f234b1a042" },
-  { name:"FIFA | Vietnamies | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live05.meung.app/live/08552895.m3u8" },
-  { name:"FIFA | Vietnamies | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pull.niues.live/live/stream-414317_lhd.m3u8?auth_key=1783050323-0-0-15869de1b8eb3a7b9881bdaf7918dd40" },
-  { name:"FIFA | CazéTV Mobile Only", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
-  { name:"FIFA | English | Bioscope+ HD", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://master.ajmainearafat.workers.dev/?url=https://bioscopebd.alarafatofficial.workers.dev/out/v1/60e7608404004b1186261497b404630b/index.m3u8&ekey=SPORTIX_SECURE_KEY_2026" },
-  { name:"FIFA | English | Toffee", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://banglalive.xyz/api/public/stream-proxy?url=https%3A%2F%2Fbldcmprod-cdn.toffeelive.com%2Fcdn%2Flive%2Fslang%2Ffifa_world_cup_576%2Ffifa_world_cup_576.m3u8%3Fbitrate%3D1000000%26channel%3Dfifa_world_cup_576%26gp_id%3D&ua=okhttp%2F5.1.0&cookie=Edge-Cache-Cookie%3DURLPrefix%3DaHR0cHM6Ly9ibGRjbXByb2QtY2RuLnRvZmZlZWxpdmUuY29t%3AExpires%3D1784491236%3AKeyName%3Dprod_linear%3ASignature%3DBQ1gZUZ3SLZYs1hcOKNJq0sBt0JPWHJGHJ42iHQeU9290Hxf6C_Iewy79o1hF7RGmZFF-VPdMBEr8hL1xZ8cAQ" },
-  { name:"FIFA | English | Bein", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://node8.no-612.workers.dev/resource/MjQwNTk5MDY0MTY5OjI0MDU5OTA2NDE2OToxMjAzNTpsaXZl/index.m3u8" },
-  { name:"FIFA | English | Somoy TV 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-  { name:"FIFA | English | Somoy TV 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://bdixserver.tvhunter.top/ant1003/tracks-v1a1/mono.m3u8" },
-  { name:"FIFA | English | Somoy TV 3", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/Somoy-tv/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
-  { name:"FIFA | English | T Sports 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
-  { name:"FIFA | English | T Sports 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
-  { name:"FIFA | English | T Sports 3", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://bdixserver.tvhunter.top/ant1009/tracks-v1a1/mono.m3u8" },
-  { name:"FIFA | English | PTV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/PTV/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
-  { name:"FIFA | English | Unite8 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/UnitedSports/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
-  { name:"FIFA | English | Unite8 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://bdixserver.tvhunter.top/ant1002/tracks-v1a1/mono.m3u8" },
-  { name:"FIFA | English | Unite8 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/UnitedSports/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
-  { name:"FIFA | English | Unite8 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://114.130.57.233:8080/unitedsports-bdixbd.net/video.m3u8?token=SkQuhAXZxgBan1" },
-  { name:"FIFA | English | Unite8 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://bdixserver.tvhunter.top/ant1001/tracks-v1a1/mono.m3u8" },
-  { name:"FIFA | English | BTV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/tv/playlists/ip-tv-web-103.151.60.204?token=Cv90Fr-lyiZYh2" },
-  { name:"FIFA | English | FOX", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://85.237.89.160:9590/usa-s/FOX-SPORTS-1/index.m3u8" },
-  { name:"FIFA | English | TSN 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://40.160.24.55/TSN_1/index.m3u8" },
-  { name:"FIFA | English | TSN 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://40.160.24.55/TSN_2/index.m3u8" },
-  { name:"FIFA | English | TSN 3", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://40.160.24.55/TSN_3/index.m3u8" },
-  { name:"FIFA | English | TSN 4", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://40.160.24.55/TSN_4/index.m3u8" },
-  { name:"FIFA | English | TSN 5", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://40.160.24.55/TSN_5/index.m3u8" },
   // Sports
   { name:"T Sports 1", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
   { name:"T Sports 2", cat:"sports", logo:"https://i.imgur.com/2JzlorD.png", url:"https://khela24.space/api/public/iptv-proxy?u=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
@@ -708,6 +677,7 @@ const channels = [
   { name:"TLC HD", cat:"explore", logo:"https://s3.aynaott.com/storage/ba3c9fa1144bc65322f8ae3a1bb69cc9", url:"https://tvsen7.aynascope.net/tlc_hd/tracks-v1a1/mono.ts.m3u8" },
   { name:"Food Network", cat:"explore", logo:"https://s3.aynaott.com/storage/582675c375dfa47c2d66e6639fcd2eac", url:"https://tvsen7.aynascope.net/foodnetwork/tracks-v1a1/mono.ts.m3u8" },
   // Religion
+  { name:"IRIB TV 4k", cat:"religion", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://khela24.space/api/public/iptv-proxy?u=https://live-aburayhan1101.telewebion.ir/ek/faratar/live/2160p/index.m3u8" },
   { name:"Islamic TV", cat:"religion", logo:"https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(8).jpeg", url:"https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/islamictvbd.stream/tracks-v1a1/mono.m3u8" },
   { name:"Makka TV", cat:"religion", logo:"", url:"https://media2.streambrothers.com:1936/8122/8122/chunklist_w1247854077.m3u8" },
   { name:"Peace TV Bangla", cat:"religion", logo:"https://i.ibb.co/Gfw89mC/20240804-033102.png", url:"" },
@@ -717,12 +687,25 @@ const channels = [
   { name:"MADANI TV", cat:"religion", logo:"https://s3.aynaott.com/storage/813fca9bc7df9a4810efe2eb87c57039", url:"https://tvsen7.aynascope.net/MadaniTV/tracks-v1a1/mono.ts.m3u8" },
   { name:"Al Quran", cat:"religion", logo:"", url:"https://live.kwikmotion.com/sharjahtvquranlive/shqurantv.smil/playlist.m3u8" },
   { name:"Saudia Quran", cat:"religion", logo:"", url:"https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
+  // FIFA 26
+  { name:"FIFA", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://khela24.space/api/public/iptv-proxy?u=https://s2.bufaloweb.com/bufalo9/tracks-v4a1/mono.ts.m3u8" },
+  { name:"FIFA | Vietnamies | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live05.meung.app/live/08552895.m3u8" },
+  { name:"FIFA | Vietnamies | Web", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://pull.niues.live/live/stream-414317_lhd.m3u8?auth_key=1783050323-0-0-15869de1b8eb3a7b9881bdaf7918dd40" },
+  { name:"FIFA | CazéTV Mobile Only", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
+  { name:"FIFA | English | Somoy TV 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
+  { name:"FIFA | English | Somoy TV 3", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/Somoy-tv/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
+  { name:"FIFA | English | T Sports 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
+  { name:"FIFA | English | PTV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/PTV/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
+  { name:"FIFA | English | Unite8 1", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/UnitedSports/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
+  { name:"FIFA | English | Unite8 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/UnitedSports/tracks-v1a1/mono.m3u8?token=Cv90Fr-lyiZYh2" },
+  { name:"FIFA | English | Unite8 2", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://114.130.57.233:8080/unitedsports-bdixbd.net/video.m3u8?token=SkQuhAXZxgBan1" },
+  { name:"FIFA | English | BTV", cat:"fifa", logo:"https://i.postimg.cc/prpKH29k/image.png", url:"https://stream.tvivu.com/?url=http://103.151.60.204:881/tv/playlists/ip-tv-web-103.151.60.204?token=Cv90Fr-lyiZYh2" },
 ];
 const catLabels = {
-  fifa:"⚽Fifa World Cup⚽", bangla:"🍿 Bangla Entertainment", sports:"🏆 Sports Channels",
+  bangla:"🍿 Bangla Entertainment", sports:"🏆 Sports Channels",
   news:"📰 Live News & Info", kids:"🧸 Kids Channels",
   movies:"🎬 Movies, Music & Doc", hindi:"🌐 English & Hindi",
-  religion:"🕌 Religious, Weather & Info"
+  religion:"🕌 Religious, Weather & Info", fifa:"⚽Fifa World Cup⚽"
 };
 
 let currentCat = "all";
